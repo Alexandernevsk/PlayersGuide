@@ -1,4 +1,4 @@
-package Week1.Day1.Day2;
+package Week1.Day1.Day02;
 import java.util.Scanner;
 public class HelloSomethingElse {
     /*opdracht is een beetje onduidelijk
