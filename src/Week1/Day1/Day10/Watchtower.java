@@ -34,6 +34,6 @@ public class Watchtower {
             System.out.println("The enemy is south-west of the city.");
         }else if(direction[0] > 0 && direction[1] < 1){
             System.out.println("The enemy is south-east of the city.");
-        }else System.out.println("The Enemy is at the gates!! I hope Gandalf will arive with Rohirrim in time!");
+        }else System.out.println("The Enemy is at the gates!! I hope Gandalf will arrive with Rohirrim in time!");
     }
 }

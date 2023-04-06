@@ -100,7 +100,7 @@ public class TheShop {
         }
     }
     public void priceShaft(){
-        new ArrowShaft().costforShaft();
+        new ArrowShaft().costForShaft();
         System.out.println("\nDo you want to look further in the Shop?");
         if(costumerResponse().equalsIgnoreCase("yes")){
             priceDisplay();

@@ -1,14 +1,11 @@
 package Week1.Day1.Day20;
 
-import javax.lang.model.element.Element;
-import java.util.stream.Stream;
-
 public enum MainIngredient {
     CHICKEN("Chicken"),
     MUSHROOMS("Mushroom"),
     CARROTS("Carrot"),
     POTATOES("Potato");
-    private String output;
+    private final String output;
 
     MainIngredient(String output) {
         this.output = output;

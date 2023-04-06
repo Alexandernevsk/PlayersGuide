@@ -2,12 +2,10 @@ package Week1.Day1.Day20;
 
 
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class SelfService {
-   private String theSoup;
-   public String Seasoning(String choose){
+    public String Seasoning(String choose){
      return SeasoningSoup.loop(choose).getOutput();
    }
    public String ingredient(String choose){
@@ -27,11 +25,7 @@ public class SelfService {
      String ingredient = " " + ingredient(scanner.nextLine());
        System.out.println("What kind of meal do you want? Soup, Stew or Gumbo?");
      String meal = " " + meal(scanner.nextLine()) + ".";
-       theSoup = seasoning + ingredient + meal;
+       String theSoup = seasoning + ingredient + meal;
        System.out.println("You chose: " + theSoup);
-   }
-
-   public String getTheSoup() {
-      return theSoup;
    }
 }
