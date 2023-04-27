@@ -3,7 +3,7 @@ package Week1.Day1.Day21_22;
 import java.util.Scanner;
 
 public class TheShop {
-    private double bill = 0;
+    private static double bill = 0;
     public static void shopDisplay(){
         System.out.println("|---------------------------------------|---------------------|");
         System.out.println("|      Welcome to my fletcher shop      |  ANNO DOMINI: MLXI  |" );
@@ -41,8 +41,8 @@ public class TheShop {
         System.out.println("|-------------------------------------------------------------|");
 
         String menu = """
-             |---------------------------------|               
-             |      Custom Arrow Menu:         |               
+             |---------------------------------|
+             |      Custom Arrow Menu:         |
 |-------------------------------------------------------------|
 | 1.Arrow-shaft between 60-100cm in length (0.05 gold per cm).|
 | 2.Arrow-Head type: Steel, Obsidian or Wood.                 |
@@ -125,16 +125,16 @@ public class TheShop {
         return scanner.nextLine();
     }
     //TODO replace this code into the private arrow class
-    public double setCostCustomArrow(){
+    public void setCostCustomArrow(){
         System.out.println("Do you want to see the menu?");
         if(costumerResponse().equalsIgnoreCase("yes")){
             shopDisplay();
         }
-        new TheShop().setBill(bill += new ArrowShaft().buy());
+        TheShop.setBill(bill += new ArrowShaft().buy());
         System.out.println("What kind of arrowhead do you want?");
-        new TheShop().setBill(bill += Arrowhead.loop(costumerResponse()));
+        TheShop.setBill(bill += Arrowhead.loop(costumerResponse()));
         System.out.println("What kind of feather-type do you want?");
-        new TheShop().setBill(bill += FeatherType.loop(costumerResponse()));
+        TheShop.setBill(bill += FeatherType.loop(costumerResponse()));
         System.out.println("This is what it cost: " + getBill());
         System.out.println("\nDo you wanna buy something else?");
         while(costumerResponse().equalsIgnoreCase("yes")) {
@@ -143,7 +143,7 @@ public class TheShop {
                 buy();
             }
         }
-        return new TheShop().getBill();
+        new TheShop();
     }
     public void setCostStandardArrow() {
         System.out.println("Do you want to see the menu?");
@@ -152,9 +152,9 @@ public class TheShop {
         }
         System.out.println("Type in the number next to the arrows to add one.");
         switch(costumerResponse()){
-            case "1" -> new TheShop().setBill(bill += StandardArrows.getPriceCost(StandardArrows.BEGINNER));
-            case "2" -> new TheShop().setBill(bill +=StandardArrows.MARKSMAN.getPriceCost(StandardArrows.MARKSMAN.toString()));
-            case "3" -> new TheShop().setBill(bill +=StandardArrows.ELITE.getPriceCost(StandardArrows.ELITE.toString()));
+            case "1" -> TheShop.setBill(bill += StandardArrows.getPriceCost(StandardArrows.BEGINNER));
+            case "2" -> TheShop.setBill(bill +=StandardArrows.MARKSMAN.getPriceCost(StandardArrows.MARKSMAN.toString()));
+            case "3" -> TheShop.setBill(bill +=StandardArrows.ELITE.getPriceCost(StandardArrows.ELITE.toString()));
         }
         System.out.println("Do you want to buy more things?");
         if(costumerResponse().equalsIgnoreCase("yes")){
@@ -176,7 +176,7 @@ public class TheShop {
     public double getBill() {
         return bill;
     }
-    private void setBill(double bill) {
-        this.bill = bill;
+    private static void setBill(double bill) {
+        TheShop.bill = bill;
     }
 }

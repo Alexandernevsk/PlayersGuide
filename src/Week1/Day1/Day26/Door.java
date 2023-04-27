@@ -2,12 +2,12 @@ package Week1.Day1.Day26;
 
 import java.util.Scanner;
 
-public class TheDoor {
+public class Door {
     private String password;
     private DoorStates doorStates;
 
     public static void main(String[] args) {
-        TheDoor door = new TheDoor("abcd");
+        Door door = new Door("abcd");
         System.out.println(DoorStates.LOCKED);
     }
     public static String userInput(){
@@ -24,14 +24,13 @@ public class TheDoor {
         this.password = password;
     }
 
-    public TheDoor(String password) {
+    public Door(String password) {
         this.password = password;
     }
 
-    public TheDoor() {
+    public DoorStates getDoorStates() {
+        return doorStates;
     }
-
-
 
     @Override
     public String toString() {

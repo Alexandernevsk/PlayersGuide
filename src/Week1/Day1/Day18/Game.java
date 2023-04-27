@@ -7,8 +7,8 @@ public class Game {
     public int displayConsolas (){
         return consolasHealthPoints;
     }
-    public int reduceConsolasHp(){
-        return consolasHealthPoints--;
+    public void reduceConsolasHp(){
+        consolasHealthPoints--;
 
     }
     public int displayManticoreHp(){

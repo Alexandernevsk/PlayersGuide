@@ -9,7 +9,7 @@ public class ArrowShaft {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nChoose a length between 60 and 100 in cm");
         setLength(scanner.nextDouble());
-        if(!inBounds()) {
+        if(inBounds()) {
             System.out.println("Choose a valid length for the shaft.");
             costForShaft();
         }
@@ -31,7 +31,7 @@ public class ArrowShaft {
     }
     //Rewrite inbounds is inverted
     public boolean inBounds() {
-        return length >= 60 && length <= 100;
+        return length < 60 || length > 100;
     }
    public double getShaftCost(){
         return shaftCost;

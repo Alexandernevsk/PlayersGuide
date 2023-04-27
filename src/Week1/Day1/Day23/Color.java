@@ -33,6 +33,9 @@ public class Color {
     public final static Color BLUE = new Color(0,0,255);
     private final static Color WHITE = new Color(255);
 
+
+
+
     /* De verschillende kleuren
     * Oranje rood: 255  groen: 165: blauw: 0
     * Rood  rood: 255 groen: 0 blauw: 0

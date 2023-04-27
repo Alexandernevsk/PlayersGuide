@@ -12,9 +12,10 @@ public class Manticore {
         while (mark < 1 || mark > 100) {
             System.out.println("Number is not in range. Please type in another number.");
             mark = input.nextInt();
-            if (mark > 1 && mark > 100) ;
-            System.out.println(" That number is in range.");
-            guessNumber(mark);
+            if (mark >= 1 && mark <= 100) {
+                System.out.println(" That number is in range.");
+                guessNumber(mark);
+            }
         }
         guessNumber(mark);
     }
@@ -32,7 +33,7 @@ public class Manticore {
             } else if (guess < mark) {
                 System.out.println("That's too low, guess again");
                 game.reduceConsolasHp();
-            } else if (guess == mark){
+            } else {
                 System.out.println("You hit the manticore. Good Job!");
                 game.reduceManticoreHp(counter);
                 if(game.displayManticoreHp() == 0){
