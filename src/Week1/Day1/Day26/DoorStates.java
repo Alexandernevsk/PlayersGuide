@@ -9,8 +9,9 @@ public enum DoorStates{
     }
 
     public static boolean checkPassword(Door door, String input){
-        return door.getPassword().equals(input);
+        return door.get_password().equals(input);
     }
 
 
 }
+
