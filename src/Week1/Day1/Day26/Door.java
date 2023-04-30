@@ -1,90 +1,128 @@
 package Week1.Day1.Day26;
 
+
 import java.util.Scanner;
-public class Door {
-    private String _password;
-    private DoorStates _doorState;
-    public int tries = 3;
+
+/** General outline:
+ * I have two enums one with options to choose, and that one is for the user to choose from.
+ * Included some more options than only the options for changing the states of a door.
+ * Besides the enums I created a DoorInterface to have general outline for the several methods.
+ * Interface is not very complicated just a useful tool to keep track of the outline.
+ */
+
+public class Door implements DoorInterface  {
+    //Accepts OPEN, CLOSED, LOCKED as inputs, and door always starts LOCKED
+    private DoorStates state = DoorStates.LOCKED;
+    private static boolean runWhileLoop = true;
+    private String password;
 
     public static void main(String[] args) {
         Door door = new Door();
-        switchingDoors(door);
-    }
-//Added an init block to initially lock the door -- like you would encounter in a hotel room.
+        door.doorOptions(door);
 
-    {_doorState = DoorStates.LOCKED;}
-
-    public Door() {
-        System.out.println("Please type in a password with more than 3 digits.");
-        System.out.println("There shouldn't be any white spaces! These will be removed automatically.");
-        this._password = userPassword();
-    }
-    public String get_password() {
-        return _password;
     }
 
-    public DoorStates get_doorState() {
-        return _doorState;
-    }
-
-    //Create some limits for password creation to avoid nonsense passwords as blank spaces or minimal length.
-    public void change_password(){
-        System.out.println("Type in your current password to change password. It's case-sensitive!");
-        while(tries > 0) {
-            String currentPassword = userPassword();
-            if (currentPassword.equals(_password)) {
-                System.out.println("Type in your new password.");
-                System.out.println(_password);
-                this._password = userPassword();
+    public Door(){
+        while(true){
+            System.out.println("Please fill in your password");
+            System.out.println("Password must be longer than 6 characters and smaller than 15");
+            String password = userInput().replaceAll(" ", "");
+            if(password.length() > 6 && password.length() < 15){
+                this.password = password;
                 break;
-            } else {
-                System.out.println("Doesn't match your current password.");
-                tries--;
-                System.out.println(tries);
-            }
-            if(tries == 0){
-                System.out.println("You type the password wrong 3 times. The program will now terminate");
-                System.exit(0);
+            }else System.out.println("Invalid password");
+        }
+    }
+    //Main method. Switch seemed the best solution for the different option. Tried invocation, but that was a bit too hard to achieve
+
+    public void doorOptions(Door door){
+        while(runWhileLoop) {
+            System.out.println();
+            System.out.println(door + " What do you want to do?");
+            System.out.println("All the available options are: exit, open, close, lock, unlock or change (to change your password)");
+            System.out.println("You can only open or lock the door when it is closed; close it when it is opened, and unlock it when it is locked.");
+            String opts = userInput();
+            try {
+                switch (Options.valueOf(opts.toUpperCase())) {
+                    case LOCK -> lock(door);
+                    case CLOSE -> close(door);
+                    case OPEN -> open(door);
+                    case EXIT -> exit();
+                    case CHANGE -> setPassword();
+                    case UNLOCK -> unlock(door);
+                    default -> System.out.println("That's not a option");
+                }
+            } catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
             }
         }
     }
-    public void set_doorState(DoorStates _doorState) {
-        this._doorState = _doorState;
-    }
-
     @Override
-    public String toString() {
-        return "The door is " +  _doorState + '.';
+    public void exit() {
+        runWhileLoop = false;
     }
-    public static String userPassword(){
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        while(removeWhiteSpaces(input).length() < 4){
-            System.out.println("Password must be longer than 3 digits.");
-            input = scanner.nextLine();
-        }
-        return removeWhiteSpaces(input);
-    }
-
     public static String userInput(){
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
-    public static String removeWhiteSpaces(String stringSpaces){
-        return stringSpaces.replaceAll("\\p{Z}","");
+    public void setState(DoorStates state) {
+        this.state = state;
     }
-    public static void switchingDoors(Door door){
-        while(true){
-            UserOptions.changingDoor(door);
-            System.out.println("Do you want to change your password? yes or no?");
-            if(userInput().equalsIgnoreCase("yes")){
-                door.change_password();
-            }
-            System.out.println("Do you wanna exit? yes or no?");
-            if(userInput().equalsIgnoreCase("yes")){
-                System.exit(0);
-            }
+
+    public void setPassword() {
+        while(true) {
+            System.out.println("Please fill in current password");
+            if (userInput().equals(password)) {
+                System.out.println("Password must be longer than 6 characters and smaller than 15");
+                String password = userInput().replaceAll(" ", "");
+                if (password.length() > 6 && password.length() < 15) {
+                    this.password = password;
+                    break;
+                } else System.out.println("Invalid password");
+            } else throw new IllegalArgumentException("password is incorrect");
         }
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+
+    @Override
+    public void close(Door door) {
+        if(door.state.equals(DoorStates.OPEN)){
+            setState(DoorStates.CLOSED);
+        }else throw new IllegalArgumentException("Door is not open");
+    }
+
+    @Override
+    public void open(Door door) {
+        if(door.state.equals(DoorStates.CLOSED)){
+            setState(DoorStates.OPEN);
+        }else throw new IllegalArgumentException(" Door is not closed");
+
+    }
+
+    @Override
+    public void lock(Door door) {
+        if(door.state.equals(DoorStates.CLOSED)){
+            setState(DoorStates.LOCKED);
+        }else throw new IllegalArgumentException("Door is not closed");
+
+    }
+
+    @Override
+    public void unlock(Door door) {
+        if(door.state.equals(DoorStates.LOCKED)){
+            System.out.println("Type in your password");
+            if(userInput().equals(getPassword())){
+                setState(DoorStates.CLOSED);
+            }else throw new IllegalArgumentException("password is incorrect");
+        }else throw new IllegalArgumentException("Door is not locked");
+    }
+
+    @Override
+    public String toString() {
+        return "Door is currently: " + state  +'.';
+    }
 }

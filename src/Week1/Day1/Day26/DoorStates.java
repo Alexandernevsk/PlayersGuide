@@ -8,10 +8,6 @@ public enum DoorStates{
         return name().toLowerCase();
     }
 
-    public static boolean checkPassword(Door door, String input){
-        return door.get_password().equals(input);
-    }
 
 
 }
-
