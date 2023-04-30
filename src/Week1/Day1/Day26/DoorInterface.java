@@ -1,6 +1,5 @@
 package Week1.Day1.Day26;
 
-import java.util.Objects;
 
 public interface DoorInterface {
 
