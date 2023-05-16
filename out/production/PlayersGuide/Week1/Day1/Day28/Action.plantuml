@@ -1,0 +1,10 @@
+@startuml Action
+enum Action {
+    ROCK
+    PAPER
+    SCISSORS
+    +toString()
+}
+
+
+@enduml

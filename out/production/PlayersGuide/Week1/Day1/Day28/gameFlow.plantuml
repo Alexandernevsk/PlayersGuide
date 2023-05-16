@@ -1,0 +1,30 @@
+
+@startuml
+title Rough outline of Rock Paper, Scissors
+(*) --> ["start"] ===B1===
+--> "Player1 ChooseAction(Action)"
+--> ===B2===
+===B1====--> "Player2 ChooseAction(Action)"
+--> ===B2===
+--> "determineWin(Player player1, Player player2)"
+-->[Check first player with second player for class Actions] "determineWin(Player player1, Player player2)"
+--> "CompareTo(Action a)"
+-->[Overrides default CompareTo(Action a)] "CompareTo(Action a)"
+if"Action" then
+-->[is true] "output"
+--> [return a win, loss a draw for Player1 or Player2] "output"
+--> [records a win, a loss or draw] "record"
+else
+-> if "NullPointer" then
+--> [if action is null] "NullPointer"
+--> [catch exception] tryCatch
+--> ===B3===
+-->[return to choose action] "Player1 ChooseAction(Action)"
+===B3===  --> "Player2 ChooseAction(Action)"
+endif
+
+
+@enduml
+@startuml
+!include ClassDiagrams.plantuml
+@enduml

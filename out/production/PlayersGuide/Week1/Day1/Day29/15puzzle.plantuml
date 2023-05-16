@@ -1,0 +1,40 @@
+@startuml
+class Board {
+-Arraylist<Integer> numberOfBoard;
+-int area;
++setBoardState(Arraylist<Integer> board)
++randomizeBoard((Arraylist<Integer> board)
+}
+
+class Player{
+-name
+-position
++direction(String direct)
+}
+
+Player -> Board
+@enduml
+
+@startuml
+start
+:square the input;
+:randomize numbers between chosen range;
+repeat:generate board;
+repeat while (solvable board state?) is (no);
+-> yes;
+:move;
+fork
+repeat :make a move;
+:check validity of make a move;
+repeat while (is move valid) is (no);
+->yes;
+end fork;
+if(is game finished?) then(yes)
+stop;
+else(no)
+->no;
+if(play again?) then (yes)
+else (no)
+stop;
+
+@enduml
