@@ -5,6 +5,4 @@ enum Action {
     SCISSORS
     +toString()
 }
-
-
 @enduml

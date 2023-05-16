@@ -1,6 +1,6 @@
 
 @startuml
-title Rough outline of Rock Paper, Scissors
+title Rough outline of Rock Paper, Sciccors
 (*) --> ["start"] ===B1===
 --> "Player1 ChooseAction(Action)"
 --> ===B2===
