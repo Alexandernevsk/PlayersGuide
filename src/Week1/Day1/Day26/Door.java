@@ -33,7 +33,7 @@ public class Door implements DoorInterface  {
             }else System.out.println("Invalid password");
         }
     }
-    //Main method. Switch seemed the best solution for the different option. Tried invocation, but that was a bit too hard to achieve
+    // Switch seemed the best solution for the different options. Tried invocation, but that was a bit too hard to achieve
 
     public void doorOptions(Door door){
         while(runWhileLoop) {

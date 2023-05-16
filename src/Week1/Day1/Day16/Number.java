@@ -8,8 +8,8 @@ public class Number {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         //askNumber("Type in a number.");
-        ForNumberInRange("Type a min value, max value, and a number in of that range.",
-                input.nextInt(), input.nextInt());
+        System.out.println("Type a min value, max value, and a number in of that range.");
+        ForNumberInRange(input.nextInt(), input.nextInt());
     }
     public static int askNumber(String text){
         System.out.println(text);
@@ -19,10 +19,10 @@ public class Number {
         System.out.println("This is what you typed: " + number);
         return number;
     }
-    public static int ForNumberInRange(String text,int min, int max){
-        System.out.println(text);
+    public static int ForNumberInRange(int min, int max){
         Scanner input = new Scanner(System.in);
-        int inputNumber = input.nextInt();
+        System.out.println("Type a number in the range of the two numbers");
+        int inputNumber = askNumber(input.nextLine());
         while(inputNumber < min || inputNumber > max){
             System.out.println("Number is ouf of range. Please try again!");
             inputNumber = input.nextInt();

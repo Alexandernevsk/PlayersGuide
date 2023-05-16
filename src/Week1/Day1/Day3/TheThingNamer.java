@@ -14,7 +14,7 @@ public class TheThingNamer {
            d.w.z we hebben over verschillende niet vergelijkbare eigenschappen, lijkt het ook niet per se de bedoeling
            te zijn om while te gebruiken.
            Qua opdracht zou ik voor de while-statement gaan, maar qua interpretatie toch de laatste.
-           Als je de while wegghaald werkt het ongeveer hetzelfde als de code in de Players Guide.
+           Als je de while wegghaald werkt het ongeveer hetzelfde als de code in de Player Guide.
 
            Daarbij heb ik ook de variabele b aangepast naar adject (Bijvoegelijk naamwoord)
          */

@@ -34,7 +34,7 @@ public class Player implements Comparable<Actions> {
           System.out.println("Not a valid action");
           chooseAction(player);
       }
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
     @Override
     public int compareTo(@NotNull Actions o) {

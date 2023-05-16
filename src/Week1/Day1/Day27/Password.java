@@ -15,7 +15,7 @@ public class Password extends Validator{
  * But essentially I made this constructor ask for a valid input with the validator,
  * before any other methods may manipulate or use the password,
  * such that the password always follows the standard requirements.
- * The doubt is mainly because a optional setPassword to change the current password,
+ * The doubt is mainly because an optional setPassword to change the current password,
  * will follow the same logic.
  */
 
