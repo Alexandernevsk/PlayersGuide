@@ -29,7 +29,7 @@ public class Puzzle {
                 int value = 1 + x + (y * size); //isn't necessary, but I like to annotate the separation of operators nonetheless;
                 board.put(new Coordinates(x,y), String.valueOf(value));
             }
-        }
+           }
         textWidth = String.valueOf(size * size -1).length() + 1;
         //Seems only necessary from the power of ten onwards so that the last place is preserved for the largest number
         //But I like the generic solution for formatting the puzzle of size n.
@@ -44,7 +44,7 @@ public class Puzzle {
         /*
         From what I understand from the previous for loop, is that this loop formats it in such a way,
         that the gap is placed in the right corner.
-        This doesn't happen in the constructor, if the ordering is preserved in the Hashmap by way of first to last added.
+        This doesn't happen in the constructor, if the ordering is preserved in the Hashmap by way of first to last added,
         the puzzle would be turned 45 degrees counterclockwise.
          */
         for(int y = 0; y < size; y++){
