@@ -1,0 +1,30 @@
+@startuml gamelogic
+!include Action.plantuml
+interface ComparableInterface<Action> {
+{abstract} compareTo(Object o)
+}
+Action *-> Player
+Object player1{
+-Action
++chooseAction()
+}
+Object player2{
+-Action
++chooseAction()
+}
+
+class Player implements ComparableInterface{
+{static}ArrayList<String> record
+-Action
++method determineWin(Player player1, Player player2)
++method chooseAction(Action a)
+...Overrides Interface...
++ method compareTo(o)
+}
+player1::chooseAction -> Player::compareTo
+player2::chooseAction -> Player::compareTo
+class runGame {
++main()
+}
+Player ..> runGame
+@enduml
