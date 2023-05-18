@@ -19,7 +19,10 @@ class Player implements ComparableInterface{
 +method determineWin(Player player1, Player player2)
 +method chooseAction(Action a)
 ...Overrides Interface...
-+ method compareTo(o)
++ method compareTo(Action a)
+
+
+)
 }
 player1::chooseAction -> Player::compareTo
 player2::chooseAction -> Player::compareTo
