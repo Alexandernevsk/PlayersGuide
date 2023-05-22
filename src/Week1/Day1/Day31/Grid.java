@@ -9,6 +9,7 @@ public class Grid {
     private final ArrayList<DotCross> _grid = new ArrayList<>();
     private final DotCross empty = DotCross.NONE;
     private final static int MAX_SIZE = 9;
+    private static int turn = 0;
     private final DotCross [] players = {DotCross.CROSS, DotCross.DOT};
 
     public Grid() {
@@ -33,16 +34,21 @@ public class Grid {
        return gridDisplay.toString();
     }
 
-    public boolean isSquareEmpty (int coordinate){
-        return _grid.get(coordinate).equals(empty);
+    public boolean isSquareEmpty(int coordinate){
+       return _grid.get(coordinate).equals(empty);
     }
 
     public void setMove(int move, int player){
-        if (isSquareEmpty(move)) {
-            _grid.set(move, players[player]);
-        } else {
-            System.out.println("not a valid move");
+       _grid.set(move,players[player]);
+    }
+
+    public void checkLegalMove(int player){
+        int move = check();
+        while(!isSquareEmpty(move)){
+            System.out.println("not a valid move!");
+            move = check();
         }
+        setMove(move, player);
     }
     public boolean checkWin(int player) {
         int[][] winningCombinations = {
@@ -60,10 +66,10 @@ public class Grid {
         return false;
     }
     public boolean comparingElements(int x, int y, int z, int player){
-      if(_grid.get(x).equals(players[player]))
-        if((_grid.get(x).equals(_grid.get(y)))){
-            return _grid.get(y).equals(_grid.get(z));
-        }
+        if (_grid.get(x).equals(players[player]))
+            if ((_grid.get(x).equals(_grid.get(y)))) {
+                return _grid.get(y).equals(_grid.get(z));
+            }
       return false;
     }
 
@@ -71,42 +77,61 @@ public class Grid {
         return !_grid.contains(empty);
     }
 
-    public  void runGrid(Grid grid){
-       boolean endGame = false;
-       while(!endGame){
-           System.out.println(grid);
-           System.out.println("Player 1 your turn");
-           setMove(inputScanner()-1,0);
-           System.out.println(grid);
-           System.out.println("Player 2 your turn");
-           setMove(inputScanner()-1,1);
-           System.out.println(grid);
-           if(checkWin(0)){
-               System.out.println("player 1 wins!");
-               endGame = checkWin(0);
-           }else if(checkWin(1)){
-               System.out.println("player 2 wins");
-               endGame = checkWin(1);
-           }else {
-               System.out.println("its a draw");
-               endGame = checkDraw();
-           }
-       }
+    public void turnCounter(Grid grid){
+        System.out.println(grid);
+        if(turn != 0){
+                turn = 0;
+        }else turn++;
+    }
+
+    public void runGrid(Grid grid){
+        System.out.println("Welcome to the classic tic tac toe game.");
+        System.out.println("You make a move by typing a coordinate between 1 and 9.");
+        System.out.println("1 is the upper left corner, and 9 is the upper right corner.");
+        System.out.println("All the other move in a zig-zig pattern across the grid.");
+        System.out.println();
+        System.out.println("Have fun!");
+        System.out.println();
+        System.out.println(grid);
+        System.out.println();
+        while(allConditions()) {
+            System.out.println("player " + (turn +1 ) + " its your turn");
+           checkLegalMove(turn);
+            turnCounter(grid);
+        }
+        System.out.println(grid);
+    }
+
+    public boolean allConditions(){
+        if(checkWin(0)){
+            System.out.println("\nplayer " + 1 + " wins!");
+            return false;
+        } else if(checkWin(1)){
+            System.out.println("\nplayer " + 2 + " wins!");
+            return false;
+        } else if(checkDraw()){
+            System.out.println("\nIt's a draw");
+            return false;
+        }else return true;
     }
 
     public int inputScanner(){
         Scanner scanner = new Scanner(System.in);
-        int move =0;
-        try{
-            move = scanner.nextInt();
+        int move = scanner.nextInt();
             if(move < 1 || move > 9){
                 System.out.println("not a valid number");
-                inputScanner();
+                return inputScanner();
             }
-        } catch (InputMismatchException e){
-            System.out.println("not a valid input");
-            inputScanner();
+            return move-1;
         }
-        return move;
+
+    public int check(){
+        try{
+           return inputScanner();
+        }
+        catch (InputMismatchException e){
+            System.out.println("not a valid input");
+        }
+        return check();
     }
 }
