@@ -1,0 +1,95 @@
+Java Exercises Journal;
+
+5-6-2023
+
+@ItVitae
+
+10:36 Start with day with some remarks of Wubbo for study tracking;
+    TODO: Learning more about website design try HTML and CSS;
+            -> Go further with website of last lesson;                                  CHECK
+            -> Trying js script to understand more about get-request                    NOPE
+            -> Recreate css for the html file, with comments (Previous one was like managing a byzantine bureaucracy)  WORKING PROCESS
+            -> Trying to visualize the website lay-out;                     NOPE;
+            -> Going further with player's guide Day39
+
+
+
+10:46
+Start with recreate css and html file of the older html files.
+Asking some questions about certain java topics;
+    -Inheritance
+    -Interfaces
+    -Shallow vs deep copy
+    -Levels of immutability
+
+11:14 going for a smoke;
+
+   11:20: resuming task;
+    I have commented all css styles.
+    Copied existing classes in my new website lay-out.
+
+13:00 (around this time) break smoke and something to eat
+
+15:00 Still copying classes tried to adjust pictures to be perfectly oval,
+ Unfortunately that didn't work.
+
+15:30 around this time I gave up with being a perfectionist, and started Day39 "the fountain objects"
+
+
+
+
+@Links
+Rubymine (maybe paid software)
+Else vs code or google for IDE Ruby;
+    -> Check for mix-ins;
+
+
+10-06-2023
+@At Home
+16:37
+
+Working on Day 39
+
+17:39 break
+17:45 resume
+
+18:32
+- made the grid
+- made the player
+- Made the controller
+- made the generic class for coloring the narrative items
+- made interface for player actions with several subclasses implementing that functional interface
+- made room class with several child classes.
+
+
+ ------------> Only thing to do is to create test for checking out of bounds, which shouldn't be a problem with the array index, and connecting everything together in a game loop.
+
+
+
+11-06-2023
+@At home
+
+12.29 working on day39;
+13:43 break;
+13:46 continue
+14:23 Done with assignment.
+
+
+
+12-6-2023
+@ Itvitae
+11:19 Working on the players guide day 40
+
+
+12:30 break
+Resume my work on the player's guide Day40
+I have tried to make a randomizer for the PitRoom, that didn't work;
+After much struggling decided to hardcode a location in the room;
+Additionally i have made the PitRoom class work such that it gives a message based on whether
+you are or aren't on the pit room.
+Only thing to work-out with this function is to toggle create the logic for the adjacent rooms.
+
+14:30
+Little break and having a chat with Wubbo about databases and the current assignment Day40;
+
+15:00 Bit tired of programming, I am reading some recommendations.

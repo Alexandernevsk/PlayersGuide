@@ -1,4 +1,6 @@
-package Week1.Day1.Day34;
+package Week1.Day1.Day34anday35;
+
+
 
 public class Robot {
     private int x;

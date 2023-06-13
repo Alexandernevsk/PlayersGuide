@@ -18,8 +18,7 @@ public class Door implements DoorInterface  {
 
     public static void main(String[] args) {
         Door door = new Door();
-        door.doorOptions(door);
-
+        door.doorOptions();
     }
 
     public Door(){
@@ -35,21 +34,21 @@ public class Door implements DoorInterface  {
     }
     // Switch seemed the best solution for the different options. Tried invocation, but that was a bit too hard to achieve
 
-    public void doorOptions(Door door){
+    public void doorOptions(){
         while(runWhileLoop) {
             System.out.println();
-            System.out.println(door + " What do you want to do?");
+            System.out.println(this + " What do you want to do?");
             System.out.println("All the available options are: exit, open, close, lock, unlock or change (to change your password)");
             System.out.println("You can only open or lock the door when it is closed; close it when it is opened, and unlock it when it is locked.");
             String opts = userInput();
             try {
                 switch (Options.valueOf(opts.toUpperCase())) {
-                    case LOCK -> lock(door);
-                    case CLOSE -> close(door);
-                    case OPEN -> open(door);
+                    case LOCK -> lock(this);
+                    case CLOSE -> close(this);
+                    case OPEN -> open(this);
                     case EXIT -> exit();
                     case CHANGE -> setPassword();
-                    case UNLOCK -> unlock(door);
+                    case UNLOCK -> unlock(this);
                     default -> System.out.println("That's not a option");
                 }
             } catch (IllegalArgumentException e){

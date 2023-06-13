@@ -62,7 +62,6 @@ public class Grid {
                 return true;
             }
         }
-
         return false;
     }
     public boolean comparingElements(int x, int y, int z, int player){
@@ -95,7 +94,7 @@ public class Grid {
         System.out.println(grid);
         System.out.println();
         while(allConditions()) {
-            System.out.println("player " + (turn +1 ) + " its your turn");
+            System.out.println("player " + (turn + 1 ) + " its your turn");
            checkLegalMove(turn);
             turnCounter(grid);
         }
