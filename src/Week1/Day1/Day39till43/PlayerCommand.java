@@ -1,4 +1,4 @@
-package Week1.Day1.Day39;
+package Week1.Day1.Day39till43;
 
 public interface PlayerCommand {
     void doAction(Player player);

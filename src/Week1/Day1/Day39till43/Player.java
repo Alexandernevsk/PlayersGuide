@@ -1,4 +1,4 @@
-package Week1.Day1.Day39;
+package Week1.Day1.Day39till43;
 
 import java.util.Scanner;
 
@@ -70,6 +70,7 @@ public class Player {
 
     public String adjacencyToPit () {
         String description = ColorItem.ItemColor.ANSI_YELLOW_UNDERLINED + getGrid().getPitRoom().getRoomDescription() + ColorItem.ItemColor.ANSI_RESET;
+
         if (getGrid().getPitRoom().isTrapped()) {
             return "";
         } else {

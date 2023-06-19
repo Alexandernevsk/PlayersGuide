@@ -1,6 +1,4 @@
-package Week1.Day1.Day39;
-
-import java.awt.*;
+package Week1.Day1.Day39till43;
 
 public class ColorItem <T> {
     T item;

@@ -1,4 +1,4 @@
-package Week1.Day1.Day39;
+package Week1.Day1.Day39till43;
 
 public abstract class Room  {
     public abstract String getRoomDescription();
@@ -81,5 +81,42 @@ class EntranceAndExitRoom extends Room {
     @Override
     public String toString() {
         return getRoomDescription();
+    }
+}
+
+class Maelstrom extends Room {
+    private int row;
+    private int column;
+
+    private boolean entered;
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public boolean isEntered() {
+        return entered;
+    }
+
+
+    public void setEntered(boolean entered) {
+        this.entered = entered;
+    }
+
+    @Override
+    public String getRoomDescription() {
+     return  isEntered() ? "You enter the maelstrom" : "you hear the growling and groaning of a maelstrom nearby";
     }
 }

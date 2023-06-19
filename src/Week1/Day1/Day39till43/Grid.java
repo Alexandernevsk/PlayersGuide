@@ -1,6 +1,5 @@
-package Week1.Day1.Day39;
+package Week1.Day1.Day39till43;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Grid {
@@ -20,16 +19,19 @@ public class Grid {
                map[0][0] = new EntranceAndExitRoom();
                map[2][0] = new FountainRoom();
                map[1][1] = new PitRoom();
+               map[0][1] = new Maelstrom();
            }
            case MEDIUM -> {
                map[2][2] = new EntranceAndExitRoom();
                map[4][0] = new FountainRoom();
                map[3][2] = new PitRoom();
+               map[4][1] = new Maelstrom();
            }
            case LARGE -> {
-               map [5][0] = new EntranceAndExitRoom();
-               map [7][2] = new FountainRoom();
+               map[5][0] = new EntranceAndExitRoom();
+               map[7][2] = new FountainRoom();
                map[3][3] = new PitRoom();
+               map[2][1] = new Maelstrom();
            }
        }
        getEntrance().setRoom(getFountainRoom());
@@ -39,6 +41,8 @@ public class Grid {
         Grid grid = new Grid(MapSize.DEFAULT);
         System.out.println(grid.getPitRoom().getRoomDescription());
     }
+
+
 
 
     /**
@@ -61,6 +65,19 @@ public class Grid {
         }
     }
     **/
+
+
+    public Maelstrom getMaelstrom() {
+        for(int i = 0; i < map.length; i++){
+            for(int j = 0; j < map.length; j++){
+                if(map[i][j] instanceof Maelstrom ){
+                    
+                    return (Maelstrom) map[i][j];
+                }
+            }
+        }
+        return null;
+    }
 
     public PitRoom getPitRoom(){
      for(Room[] rooms : map){
