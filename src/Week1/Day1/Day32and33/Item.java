@@ -11,25 +11,25 @@ public abstract class Item {
      * Sword weight of 5 and volume of 3
      */
 
-    private final double DECIMAL_WEIGHT;
-    private final double DECIMAL_VOLUME;
+    private final double decimalWeight;
+    private final double decimalVolume;
 
-    public Item(double DECIMAL_WEIGHT, double DECIMAL_VOLUME) {
-        this.DECIMAL_WEIGHT = DECIMAL_WEIGHT;
-        this.DECIMAL_VOLUME = DECIMAL_VOLUME;
+    public Item(double decimalWeight, double decimalVolume) {
+        this.decimalWeight = decimalWeight;
+        this.decimalVolume = decimalVolume;
     }
 
-    public Item(int WEIGHT, int VOLUME){
-        this.DECIMAL_WEIGHT =  WEIGHT;
-        this.DECIMAL_VOLUME = VOLUME;
+    public Item(int weight, int volume){
+        this.decimalWeight =  weight;
+        this.decimalVolume = volume;
     }
 
-    public double getDECIMAL_WEIGHT() {
-        return DECIMAL_WEIGHT;
+    public double getDecimalWeight() {
+        return decimalWeight;
     }
 
-    public double getDECIMAL_VOLUME() {
-        return DECIMAL_VOLUME;
+    public double getDecimalVolume() {
+        return decimalVolume;
     }
 
 

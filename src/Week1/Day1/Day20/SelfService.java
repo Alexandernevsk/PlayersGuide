@@ -6,17 +6,19 @@ import java.util.Scanner;
 
 public class SelfService {
     public String Seasoning(String choose){
-     return SeasoningSoup.loop(choose).getOutput();
+     return SeasoningSoup.loop(choose).toString();
    }
    public String ingredient(String choose){
-     return  MainIngredient.loop(choose).getOutput();
+     return  MainIngredient.loop(choose).toString();
 
    }
 
-   public String meal(String choose) {
-      return TypeSoup.loop(choose).getOutput();
+   public TypeSoup meal(String choose) {
+      return TypeSoup.loop(choose);
 
    }
+
+
    public void finishedMeal(){
        Scanner scanner = new Scanner(System.in);
        System.out.println("What kind of seasoning do you want? Sweet, Salty or Spicy?");

@@ -93,3 +93,8 @@ Only thing to work-out with this function is to toggle create the logic for the 
 Little break and having a chat with Wubbo about databases and the current assignment Day40;
 
 15:00 Bit tired of programming, I am reading some recommendations.
+
+
+19-06-2023
+
+13:41 Reviewing some code, especially for name conventions

@@ -86,15 +86,15 @@ public class Grid {
     public void runGrid(Grid grid){
         System.out.println("Welcome to the classic tic tac toe game.");
         System.out.println("You make a move by typing a coordinate between 1 and 9.");
-        System.out.println("1 is the upper left corner, and 9 is the upper right corner.");
-        System.out.println("All the other move in a zig-zig pattern across the grid.");
+        System.out.println("1 is the upper left corner, and 9 is the lower right corner.");
+        System.out.println("All the other tiles move in a zig-zig pattern across the grid.");
         System.out.println();
         System.out.println("Have fun!");
         System.out.println();
         System.out.println(grid);
         System.out.println();
         while(allConditions()) {
-            System.out.println("player " + (turn + 1 ) + " its your turn");
+            System.out.println("player " + (turn++ ) + " its your turn");
            checkLegalMove(turn);
             turnCounter(grid);
         }

@@ -3,6 +3,9 @@ package Week1.Day1.Day19;
 
 import java.util.Scanner;
 
+//Can be written much cleaner
+
+
 public class SimulaTest {
     public static void main(String[] args) {
         switchingChestStates();

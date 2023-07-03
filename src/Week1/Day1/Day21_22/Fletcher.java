@@ -1,7 +1,7 @@
 package Week1.Day1.Day21_22;
-public class TheFletcher {
+public class Fletcher {
     public static void main(String[] args) {
-        TheShop shop = new TheShop();
+        Shop shop = new Shop();
         shop.priceDisplay();
     }
 }

@@ -2,7 +2,7 @@ package Week1.Day1.Day21_22;
 import java.util.Scanner;
 public class ArrowShaft {
     private double length = 0;
-    private final static double costPerLength = 0.05;
+    private final static double COST_PER_LENGTH = 0.05;
     private double shaftCost;
 
     public void costForShaft(){
@@ -21,7 +21,7 @@ public class ArrowShaft {
         }
 
     public void setShaftCost(double length) {
-      shaftCost = this.length * costPerLength;
+      shaftCost = this.length * COST_PER_LENGTH;
     }
     public double getLength() {
         return length;
@@ -38,10 +38,10 @@ public class ArrowShaft {
    }
    public double buy(){
        System.out.println("Type in the length of the shaft you want to buy");
-       setLength(Integer.parseInt(TheShop.costumerResponse()));
+       setLength(Integer.parseInt(Shop.costumerResponse()));
      while (!inBounds()) {
          System.out.println("please type in a valid length between 60 and 100 cm");
-         setLength(Integer.parseInt(TheShop.costumerResponse()));
+         setLength(Integer.parseInt(Shop.costumerResponse()));
      }
      setShaftCost(getLength());
      return getShaftCost();

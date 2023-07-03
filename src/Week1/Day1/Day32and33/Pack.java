@@ -42,7 +42,7 @@ public class Pack {
     public double getCurrentWeightCapacity(){
         double weightCapacity = 0;
         for(Item items: pack){
-            weightCapacity += items.getDECIMAL_WEIGHT();
+            weightCapacity += items.getDecimalWeight();
         }
         return weightCapacity;
     }
@@ -50,7 +50,7 @@ public class Pack {
     public double getCurrentVolumeCapacity(){
         double volumeCapacity = 0;
         for(Item items: pack){
-            volumeCapacity += items.getDECIMAL_VOLUME();
+            volumeCapacity += items.getDecimalVolume();
         }
         return volumeCapacity;
     }
@@ -58,8 +58,8 @@ public class Pack {
 
     public boolean possibleAdd(Item item) {
       if(pack.size() < MAX_NUMBER_OF_ITEMS){
-          return item.getDECIMAL_VOLUME() + getCurrentVolumeCapacity() <= MAX_VOLUME_CAPACITY
-                  && item.getDECIMAL_WEIGHT() + getCurrentWeightCapacity() <= MAX_WEIGHT_CAPACITY;
+          return item.getDecimalVolume() + getCurrentVolumeCapacity() <= MAX_VOLUME_CAPACITY
+                  && item.getDecimalWeight() + getCurrentWeightCapacity() <= MAX_WEIGHT_CAPACITY;
       }else return false;
     }
 

@@ -2,7 +2,7 @@ package Week1.Day1.Day21_22;
 
 import java.util.Scanner;
 
-public class TheShop {
+public class Shop {
     private static double bill = 0;
     public static void shopDisplay(){
         System.out.println("|---------------------------------------|---------------------|");
@@ -130,11 +130,11 @@ public class TheShop {
         if(costumerResponse().equalsIgnoreCase("yes")){
             shopDisplay();
         }
-        TheShop.setBill(bill += new ArrowShaft().buy());
+        Shop.setBill(bill += new ArrowShaft().buy());
         System.out.println("What kind of arrowhead do you want?");
-        TheShop.setBill(bill += Arrowhead.loop(costumerResponse()));
+        Shop.setBill(bill += Arrowhead.loop(costumerResponse()));
         System.out.println("What kind of feather-type do you want?");
-        TheShop.setBill(bill += FeatherType.loop(costumerResponse()));
+        Shop.setBill(bill += FeatherType.loop(costumerResponse()));
         System.out.println("This is what it cost: " + getBill());
         System.out.println("\nDo you wanna buy something else?");
         while(costumerResponse().equalsIgnoreCase("yes")) {
@@ -143,7 +143,7 @@ public class TheShop {
                 buy();
             }
         }
-        new TheShop();
+        new Shop();
     }
     public void setCostStandardArrow() {
         System.out.println("Do you want to see the menu?");
@@ -152,9 +152,9 @@ public class TheShop {
         }
         System.out.println("Type in the number next to the arrows to add one.");
         switch(costumerResponse()){
-            case "1" -> TheShop.setBill(bill += StandardArrows.getPriceCost(StandardArrows.BEGINNER));
-            case "2" -> TheShop.setBill(bill +=StandardArrows.MARKSMAN.getPriceCost(StandardArrows.MARKSMAN.toString()));
-            case "3" -> TheShop.setBill(bill +=StandardArrows.ELITE.getPriceCost(StandardArrows.ELITE.toString()));
+            case "1" -> Shop.setBill(bill += StandardArrows.getPriceCost(StandardArrows.BEGINNER));
+            case "2" -> Shop.setBill(bill +=StandardArrows.MARKSMAN.getPriceCost(StandardArrows.MARKSMAN.toString()));
+            case "3" -> Shop.setBill(bill +=StandardArrows.ELITE.getPriceCost(StandardArrows.ELITE.toString()));
         }
         System.out.println("Do you want to buy more things?");
         if(costumerResponse().equalsIgnoreCase("yes")){
@@ -177,6 +177,6 @@ public class TheShop {
         return bill;
     }
     private static void setBill(double bill) {
-        TheShop.bill = bill;
+        Shop.bill = bill;
     }
 }
